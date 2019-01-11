@@ -12,6 +12,7 @@
 		63716C3B21E8CC7100F81A32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63716C3921E8CC7100F81A32 /* Main.storyboard */; };
 		63716C3D21E8CC7400F81A32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63716C3C21E8CC7400F81A32 /* Assets.xcassets */; };
 		63716C4021E8CC7400F81A32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63716C3E21E8CC7400F81A32 /* LaunchScreen.storyboard */; };
+		63716C4921E8CCFE00F81A32 /* PlayingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63716C4821E8CCFE00F81A32 /* PlayingCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		63716C3C21E8CC7400F81A32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63716C3F21E8CC7400F81A32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63716C4121E8CC7400F81A32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63716C4821E8CCFE00F81A32 /* PlayingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,23 @@
 		63716C3421E8CC7100F81A32 /* PlayingCard */ = {
 			isa = PBXGroup;
 			children = (
-				63716C3521E8CC7100F81A32 /* AppDelegate.swift */,
-				63716C3721E8CC7100F81A32 /* ViewController.swift */,
 				63716C3921E8CC7100F81A32 /* Main.storyboard */,
+				63716C3721E8CC7100F81A32 /* ViewController.swift */,
+				63716C4821E8CCFE00F81A32 /* PlayingCard.swift */,
 				63716C3C21E8CC7400F81A32 /* Assets.xcassets */,
-				63716C3E21E8CC7400F81A32 /* LaunchScreen.storyboard */,
+				63716C4721E8CC8300F81A32 /* Supporting files */,
 				63716C4121E8CC7400F81A32 /* Info.plist */,
 			);
 			path = PlayingCard;
+			sourceTree = "<group>";
+		};
+		63716C4721E8CC8300F81A32 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				63716C3521E8CC7100F81A32 /* AppDelegate.swift */,
+				63716C3E21E8CC7400F81A32 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63716C3821E8CC7100F81A32 /* ViewController.swift in Sources */,
+				63716C4921E8CCFE00F81A32 /* PlayingCard.swift in Sources */,
 				63716C3621E8CC7100F81A32 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
