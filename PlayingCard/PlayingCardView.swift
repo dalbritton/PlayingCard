@@ -8,10 +8,14 @@
 
 import UIKit
 
+@IBDesignable
 class PlayingCardView: UIView {
     
-    var rank: Int = 7 { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    @IBInspectable
+    var rank: Int = 1 { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    @IBInspectable
     var suit: String = "♠️" { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    @IBInspectable
     var isFaceUp: Bool = true { didSet { setNeedsDisplay(); setNeedsLayout() } }
     
     private func centeredAttributedString(_ string: String, fontSize: CGFloat) -> NSAttributedString {
@@ -21,7 +25,7 @@ class PlayingCardView: UIView {
         paragraphStyle.alignment = .center
         return NSAttributedString(string: string, attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle, .font: font])
     }
-
+    
     private var cornerString: NSAttributedString {
         return centeredAttributedString(rankString+"\n"+suit, fontSize: cornerFontSize)
     }
@@ -35,7 +39,7 @@ class PlayingCardView: UIView {
         addSubview(label)
         return label
     }
-
+    
     private func configureCornerLabel(_ label: UILabel) {
         label.attributedText = cornerString
         label.frame.size = CGSize.zero
@@ -112,12 +116,17 @@ class PlayingCardView: UIView {
         UIColor.white.setFill()
         roundedRect.fill()
         
-        if let faceCardImage = UIImage(named: rankString+suit) {
-            faceCardImage.draw(in: bounds.zoom(by: SizeRatio.faceCardImageSizeToBoundsSize))
+        if isFaceUp {
+            if let faceCardImage = UIImage(named: rankString+suit, in: Bundle(for: self.classForCoder), compatibleWith: traitCollection) {
+                faceCardImage.draw(in: bounds.zoom(by: SizeRatio.faceCardImageSizeToBoundsSize))
+            } else {
+                drawPips()
+            }
         } else {
-            drawPips()
+            if let backCardImage = UIImage(named: "CardBack", in: Bundle(for: self.classForCoder), compatibleWith: traitCollection) {
+                backCardImage.draw(in: bounds)
+            }
         }
-        
         //        if let context = UIGraphicsGetCurrentContext() {
         //            context.addArc(center: CGPoint(x: bounds.midX, y: bounds.midY), radius: 150, startAngle: 0, endAngle: 2*CGFloat.pi, clockwise: false)
         //            context.setLineWidth(5.0)
